@@ -5,7 +5,7 @@ using ZAD_REK.Services;
 
 namespace ZAD_REK.Controllers
 {
-    [Route("api/products")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ProductController : Controller
     {

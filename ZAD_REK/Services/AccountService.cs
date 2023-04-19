@@ -76,9 +76,33 @@ namespace ZAD_REK.Services
 
         }
 
-        public Task<TokenDTO> UpdateToken(string refreshToken)
+        public async Task<TokenDTO> UpdateToken(string refreshToken)
         {
-            throw new NotImplementedException();
+            var user = await _context.Accounts.FirstOrDefaultAsync(e => e.RefreshToken == refreshToken);
+            
+            if (user == null)
+            {
+                throw new Exception("Nieznaleziono użytkownika");
+            }
+
+            if (user.RefrestTokenExp< DateTime.Now)
+            {
+                throw new Exception("RefreshToken wygasł");
+            }
+
+            var token = GetJwtSecurityToken();
+
+            user.RefreshToken = GenerateRefreshToken();
+            user.RefrestTokenExp = DateTime.Now.AddHours(12);
+
+            await _context.SaveChangesAsync();
+
+            return new TokenDTO
+            {
+                AccessToken = new JwtSecurityTokenHandler().WriteToken(token).ToString(),
+                RefreshToken = user.RefreshToken
+            };
+
         }
 
 
