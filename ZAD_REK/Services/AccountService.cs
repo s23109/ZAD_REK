@@ -168,7 +168,7 @@ namespace ZAD_REK.Services
                 new (ClaimTypes.Role, "user")
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Secret"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["PassSecret"]));
             var creds = new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken("https://localhost:7282", "https://localhost:7282", claims, 
                 expires: DateTime.UtcNow.AddMinutes(5), signingCredentials: creds);
