@@ -1,4 +1,13 @@
+using Microsoft.Data.SqlClient;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var conStrBuilder = new SqlConnectionStringBuilder(
+        builder.Configuration.GetConnectionString("Default"));
+
+conStrBuilder.Password = builder.Configuration["DBPassword"];
+
+var connection = conStrBuilder.ConnectionString;
 
 // Add services to the container.
 
