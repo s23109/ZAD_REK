@@ -12,8 +12,8 @@ using ZAD_REK.Models;
 namespace ZAD_REK.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230419141406_Dodano tabelę Product")]
-    partial class DodanotabelęProduct
+    [Migration("20230419150842_Pierwsza_tabela+Dane")]
+    partial class Pierwsza_tabelaDane
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,6 +52,34 @@ namespace ZAD_REK.Migrations
                     b.HasKey("IdProduct");
 
                     b.ToTable("Products", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            IdProduct = 1,
+                            CreatedAt = new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2503),
+                            EditedAt = new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2527),
+                            Price = 1111.0,
+                            ProductDesc = "Desc1",
+                            ProductName = "Prod1"
+                        },
+                        new
+                        {
+                            IdProduct = 2,
+                            CreatedAt = new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2532),
+                            EditedAt = new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2533),
+                            Price = 2222.0,
+                            ProductName = "Prod2"
+                        },
+                        new
+                        {
+                            IdProduct = 3,
+                            CreatedAt = new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2535),
+                            EditedAt = new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2537),
+                            Price = 3333.0,
+                            ProductDesc = "Desc3",
+                            ProductName = "Prod3"
+                        });
                 });
 #pragma warning restore 612, 618
         }
