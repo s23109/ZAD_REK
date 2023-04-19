@@ -14,8 +14,7 @@ namespace ZAD_REK.Models
         }
 
         public virtual DbSet<Product> Products { get; set; }
-
-
+        public virtual DbSet<Account> Accounts { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -71,7 +70,21 @@ namespace ZAD_REK.Models
 
             });
 
-            
+            modelBuilder.Entity<Account>(entity =>
+            {
+                entity.HasKey(e => e.IdUser);
+
+                entity.Property(e => e.Login).IsRequired().HasMaxLength(32);
+
+                entity.Property(e => e.Password).IsRequired();
+
+                entity.Property(e => e.Salt).IsRequired();
+
+                entity.Property(e => e.RefreshToken).IsRequired();
+
+                entity.Property(e => e.RefrestTokenExp);
+
+            });
 
         }
     }
