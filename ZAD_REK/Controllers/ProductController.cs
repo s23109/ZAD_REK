@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ZAD_REK.DTOs;
 using ZAD_REK.Services;
 
 namespace ZAD_REK.Controllers
@@ -46,6 +47,35 @@ namespace ZAD_REK.Controllers
             catch (Exception ex)
             {
                 return NotFound(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateProduct (ProductPost product)
+        {
+
+            try { 
+            await _service.CreateProduct(product);
+            return Created("",product);
+            } 
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
+        [HttpPut("{IdProduct}")]
+        public async Task<IActionResult> UpdateProduct([FromRoute]int IdProduct, ProductPost product)
+        {
+            try
+            {
+                _service.UpdateProduct(IdProduct, product);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 

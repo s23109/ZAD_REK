@@ -12,6 +12,9 @@ namespace ZAD_REK.Services
 
         Task DeleteProduct(int IdProduct);
 
+        Task CreateProduct(ProductPost post);
+
+        Task UpdateProduct(int idProduct , ProductPost product);
 
 
     }
