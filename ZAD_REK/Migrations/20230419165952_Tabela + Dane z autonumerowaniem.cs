@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ZAD_REK.Migrations
 {
-    public partial class Pierwsza_tabelaDane : Migration
+    public partial class TabelaDanezautonumerowaniem : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,17 +29,17 @@ namespace ZAD_REK.Migrations
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "IdProduct", "CreatedAt", "EditedAt", "Price", "ProductDesc", "ProductName" },
-                values: new object[] { 1, new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2503), new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2527), 1111.0, "Desc1", "Prod1" });
+                values: new object[] { 1, new DateTime(2023, 4, 19, 18, 59, 52, 623, DateTimeKind.Local).AddTicks(5452), new DateTime(2023, 4, 19, 18, 59, 52, 623, DateTimeKind.Local).AddTicks(5485), 1111.0, "Desc1", "Prod1" });
 
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "IdProduct", "CreatedAt", "EditedAt", "Price", "ProductDesc", "ProductName" },
-                values: new object[] { 2, new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2532), new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2533), 2222.0, null, "Prod2" });
+                values: new object[] { 2, new DateTime(2023, 4, 19, 18, 59, 52, 623, DateTimeKind.Local).AddTicks(5491), new DateTime(2023, 4, 19, 18, 59, 52, 623, DateTimeKind.Local).AddTicks(5493), 2222.0, null, "Prod2" });
 
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "IdProduct", "CreatedAt", "EditedAt", "Price", "ProductDesc", "ProductName" },
-                values: new object[] { 3, new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2535), new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2537), 3333.0, "Desc3", "Prod3" });
+                values: new object[] { 3, new DateTime(2023, 4, 19, 18, 59, 52, 623, DateTimeKind.Local).AddTicks(5495), new DateTime(2023, 4, 19, 18, 59, 52, 623, DateTimeKind.Local).AddTicks(5497), 3333.0, "Desc3", "Prod3" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

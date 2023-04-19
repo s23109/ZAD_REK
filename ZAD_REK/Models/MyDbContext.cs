@@ -23,6 +23,7 @@ namespace ZAD_REK.Models
             var products = new List<Product> {
                 new Product
                 {
+                    IdProduct = 1,
                     ProductName= "Prod1",
                     CreatedAt = DateTime.Now,
                     EditedAt= DateTime.Now,
@@ -32,6 +33,7 @@ namespace ZAD_REK.Models
 
                 new Product
                 {
+                    IdProduct = 2,
                     ProductName = "Prod2",
                     CreatedAt = DateTime.Now,
                     EditedAt = DateTime.Now,
@@ -40,6 +42,7 @@ namespace ZAD_REK.Models
                 },
                 new Product
                 {
+                    IdProduct = 3,
                     ProductName = "Prod3",
                     CreatedAt = DateTime.Now,
                     EditedAt = DateTime.Now,

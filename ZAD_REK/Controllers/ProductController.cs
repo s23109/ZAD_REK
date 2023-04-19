@@ -33,5 +33,21 @@ namespace ZAD_REK.Controllers
         {
             return Ok(await _service.GetProducts());
         }
+
+
+        [HttpDelete("{IdProduct}")]
+        public async Task<IActionResult> DeleteProduct([FromRoute]int IdProduct)
+        {
+            try
+            {
+                await _service.DeleteProduct(IdProduct);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
     }
 }

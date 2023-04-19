@@ -10,6 +10,8 @@ namespace ZAD_REK.Services
 
         Task<IEnumerable<Product>> GetProducts();
 
+        Task DeleteProduct(int IdProduct);
+
 
 
     }

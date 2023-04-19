@@ -13,6 +13,7 @@ namespace ZAD_REK.Services
             _context = context;
         }
 
+
         public async Task<Product> GetProduct(int IdProduct)
         {
             
@@ -32,6 +33,21 @@ namespace ZAD_REK.Services
         public async Task<IEnumerable<Product>> GetProducts()
         {
             return await _context.Products.ToListAsync();
+        }
+
+
+        public async Task DeleteProduct(int IdProduct)
+        {
+            var products = _context.Products.Where(e => e.IdProduct == IdProduct);
+
+            if (!products.Any())
+            {
+                throw new Exception("Brak produktu o podanym ID");
+            }
+
+            _context.Products.Remove(await products.FirstAsync());
+            _context.SaveChangesAsync();
+
         }
     }
 }

@@ -12,8 +12,8 @@ using ZAD_REK.Models;
 namespace ZAD_REK.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230419150842_Pierwsza_tabela+Dane")]
-    partial class Pierwsza_tabelaDane
+    [Migration("20230419165952_Tabela + Dane z autonumerowaniem")]
+    partial class TabelaDanezautonumerowaniem
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -57,8 +57,8 @@ namespace ZAD_REK.Migrations
                         new
                         {
                             IdProduct = 1,
-                            CreatedAt = new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2503),
-                            EditedAt = new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2527),
+                            CreatedAt = new DateTime(2023, 4, 19, 18, 59, 52, 623, DateTimeKind.Local).AddTicks(5452),
+                            EditedAt = new DateTime(2023, 4, 19, 18, 59, 52, 623, DateTimeKind.Local).AddTicks(5485),
                             Price = 1111.0,
                             ProductDesc = "Desc1",
                             ProductName = "Prod1"
@@ -66,16 +66,16 @@ namespace ZAD_REK.Migrations
                         new
                         {
                             IdProduct = 2,
-                            CreatedAt = new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2532),
-                            EditedAt = new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2533),
+                            CreatedAt = new DateTime(2023, 4, 19, 18, 59, 52, 623, DateTimeKind.Local).AddTicks(5491),
+                            EditedAt = new DateTime(2023, 4, 19, 18, 59, 52, 623, DateTimeKind.Local).AddTicks(5493),
                             Price = 2222.0,
                             ProductName = "Prod2"
                         },
                         new
                         {
                             IdProduct = 3,
-                            CreatedAt = new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2535),
-                            EditedAt = new DateTime(2023, 4, 19, 17, 8, 42, 55, DateTimeKind.Local).AddTicks(2537),
+                            CreatedAt = new DateTime(2023, 4, 19, 18, 59, 52, 623, DateTimeKind.Local).AddTicks(5495),
+                            EditedAt = new DateTime(2023, 4, 19, 18, 59, 52, 623, DateTimeKind.Local).AddTicks(5497),
                             Price = 3333.0,
                             ProductDesc = "Desc3",
                             ProductName = "Prod3"
