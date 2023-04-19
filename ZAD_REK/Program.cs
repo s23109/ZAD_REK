@@ -1,4 +1,6 @@
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using ZAD_REK.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,11 @@ var connection = conStrBuilder.ConnectionString;
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddDbContext<MyDbContext>(options =>
+{
+    options.UseSqlServer(connection);
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
