@@ -70,7 +70,7 @@ namespace ZAD_REK.Controllers
         {
             try
             {
-                _service.UpdateProduct(IdProduct, product);
+                await _service.UpdateProduct(IdProduct, product);
                 return Ok();
             }
             catch (Exception ex)
