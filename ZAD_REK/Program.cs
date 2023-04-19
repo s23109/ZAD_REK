@@ -15,6 +15,8 @@ var connection = conStrBuilder.ConnectionString;
 // Add services to the container.
 
 builder.Services.AddScoped<IProductService,ProductService>();
+builder.Services.AddScoped<IAccountService,AccountService>();
+
 builder.Services.AddControllers();
 builder.Services.AddDbContext<MyDbContext>(options =>
 {
