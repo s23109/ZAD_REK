@@ -2,6 +2,9 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using ZAD_REK.Models;
 using ZAD_REK.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,8 @@ conStrBuilder.Password = builder.Configuration["DBPassword"];
 var connection = conStrBuilder.ConnectionString;
 
 // Add services to the container.
+
+
 
 builder.Services.AddScoped<IProductService,ProductService>();
 builder.Services.AddScoped<IAccountService,AccountService>();
@@ -30,11 +35,36 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 
 });
 
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 
+}).AddJwtBearer(opt =>
+{
+    opt.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        //Dodatkowy margines czasu
+        ClockSkew = TimeSpan.FromMinutes(2),
+        //Kto jest poprawnym wydawc¹ tokena
+        ValidIssuer = "https://localhost:7282",
+        ValidAudience = "https://localhost:7282",
+        // Jak jest podpisany
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["PassSecret"]))
+    };
+});
+
+builder.Services.AddAuthorization();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 
 var app = builder.Build();
 
@@ -45,9 +75,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
+
+
+app.UseAuthentication();
 
 app.UseAuthorization();
+
 
 app.MapControllers();
 

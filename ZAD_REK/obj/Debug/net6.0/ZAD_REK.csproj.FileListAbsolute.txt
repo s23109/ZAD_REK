@@ -61,3 +61,4 @@ D:\Programowanie\TEMP\ZAD_REK\ZAD_REK\obj\Debug\net6.0\refint\ZAD_REK.dll
 D:\Programowanie\TEMP\ZAD_REK\ZAD_REK\obj\Debug\net6.0\ZAD_REK.pdb
 D:\Programowanie\TEMP\ZAD_REK\ZAD_REK\obj\Debug\net6.0\ZAD_REK.genruntimeconfig.cache
 D:\Programowanie\TEMP\ZAD_REK\ZAD_REK\obj\Debug\net6.0\ref\ZAD_REK.dll
+D:\Programowanie\TEMP\ZAD_REK\ZAD_REK\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
