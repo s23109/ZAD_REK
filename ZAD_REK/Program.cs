@@ -6,7 +6,8 @@ using ZAD_REK.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 var conStrBuilder = new SqlConnectionStringBuilder(
-        builder.Configuration.GetConnectionString("Default"));
+        builder.Configuration.GetConnectionString("Default")
+        );
 
 conStrBuilder.Password = builder.Configuration["DBPassword"];
 
@@ -20,8 +21,15 @@ builder.Services.AddScoped<IAccountService,AccountService>();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<MyDbContext>(options =>
 {
-    options.UseSqlServer(connection);
+    options.UseSqlServer(connection,
+        sqlServerOptionsAction: sqlOptions =>
+        {
+            sqlOptions.EnableRetryOnFailure();
+        });
+
+
 });
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

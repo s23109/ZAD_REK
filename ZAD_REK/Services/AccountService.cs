@@ -170,7 +170,7 @@ namespace ZAD_REK.Services
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Secret"]));
             var creds = new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
-            var token = new JwtSecurityToken("https://localhost:5050", "https://localhost:5050", claims, 
+            var token = new JwtSecurityToken("https://localhost:7282", "https://localhost:7282", claims, 
                 expires: DateTime.UtcNow.AddMinutes(5), signingCredentials: creds);
 
             return token;
